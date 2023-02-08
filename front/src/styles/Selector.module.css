@@ -1,8 +1,13 @@
 .Selector {
-    display: flex;
+    margin: 0 10%;
 }
 
 .Checkbox {
     display: flex;
-    margin: 5px;
+    float: left;
+    margin-left: 10px;
+}
+
+.Text {
+    display: fit-content;
 }

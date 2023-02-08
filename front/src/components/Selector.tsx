@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import Style from "../styles/Selector.module.css";
 
 type Props = {
-  prefectures: string[];
+  result:
+    | {
+        prefCode: number;
+        prefName: string;
+      }[]
+    | undefined;
 };
 
 function Selector(props: Props) {
@@ -17,24 +22,28 @@ function Selector(props: Props) {
     }
   };
 
-  return (
-    <div className={Style.Selector}>
-      {props.prefectures.map((prop) => {
-        return (
-          <div key={prop} className={Style.Checkbox}>
-            <input
-              type="checkbox"
-              id={prop}
-              value={prop}
-              checked={nowCheck === prop}
-              onChange={handleChange}
-            />
-            <p>{prop}</p>
-          </div>
-        );
-      })}
-    </div>
-  );
+  if (typeof props.result === "undefined") {
+    return <></>;
+  } else {
+    return (
+      <div className={Style.Selector}>
+        {props.result.map((prop) => {
+          return (
+            <div key={prop.prefCode} className={Style.Checkbox}>
+              <input
+                type="checkbox"
+                id={prop.prefName}
+                value={prop.prefName}
+                checked={nowCheck === prop.prefName}
+                onChange={handleChange}
+              />
+              <div className={Style.Text}>{prop.prefName}</div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 export default Selector;
