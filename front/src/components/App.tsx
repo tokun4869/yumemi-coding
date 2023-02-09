@@ -66,12 +66,12 @@ function App() {
         return;
       Axios.get(url + "/api/v1/population/composition/perYear", {
         headers: { "X-API-KEY": APIKey },
-        params: { cityCode: "-", prefCode: prefCode },
+        params: { cityCode: "-", prefCode },
       })
         .then((res: AxiosResponse<PopulationAPI>) => {
           console.log(res.data);
           populationBuf.push({
-            prefName: prefName,
+            prefName,
             data: res.data.result.data[0].data,
           });
           setPopulation(populationBuf);
