@@ -1,0 +1,23 @@
+.Title {
+    margin-left: 5%;
+}
+
+.Selector {
+    margin: 0% 10%;
+    overflow: hidden;
+}
+
+.CheckField {
+    width: fit-content;
+    float: left;
+    margin-right: 10px;
+}
+
+.Check{
+    margin: auto;
+}
+
+.Text {
+    width: fit-content;
+    margin: auto;
+}

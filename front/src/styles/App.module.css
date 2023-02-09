@@ -1,0 +1,16 @@
+.Header {
+    margin: 0;
+}
+
+.Selector {
+    padding-top: 50px;
+}
+
+.Graph {
+    position: flex;
+}
+
+* {
+    margin: 0 0;
+    padding: 0 0;
+}
