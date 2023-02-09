@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios, { AxiosResponse, AxiosError } from "axios";
+import Header from "./Header";
 import Selector from "./Selector";
 import Style from "../styles/App.module.css";
 
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <div className={Style.Title}>都道府県</div>
       <Selector result={prefectures?.result} />
     </div>
