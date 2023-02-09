@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios, { AxiosResponse, AxiosError } from "axios";
 import Header from "./Header";
 import Selector from "./Selector";
+import Graph from "./Graph";
 import Style from "../styles/App.module.css";
 
 type PrefectureAPI = {
@@ -19,6 +20,7 @@ type PrefectureError = {
 function App() {
   const APIKey = "1fX6AuoPoqHbgmZlCoZYj11v65tPMfbfHJxBl0o7";
   const [prefectures, setPrefectures] = useState<PrefectureAPI>();
+  const [nowCheck, setCheck] = useState<string>("");
 
   useEffect(() => {
     const url = "https://opendata.resas-portal.go.jp/api/v1/prefectures";
@@ -33,9 +35,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <div className={Style.Title}>都道府県</div>
-      <Selector result={prefectures?.result} />
+      <div className={Style.Header}>
+        <Header />
+      </div>
+      <div className={Style.Selector}>
+        <Selector result={prefectures?.result} setCheck={setCheck} />
+      </div>
     </div>
   );
 }

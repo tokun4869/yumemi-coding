@@ -1,3 +1,13 @@
-.Title {
-    margin: 5px 5%;
+.Header {
+    margin: 0;
+}
+
+.Selector {
+    position: absolute;
+    top: 80px;
+}
+
+* {
+    margin: 0 0;
+    padding: 0 0;
 }
