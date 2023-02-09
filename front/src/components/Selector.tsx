@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Style from "../styles/Selector.module.css";
 
 type Props = {
@@ -8,23 +8,10 @@ type Props = {
         prefName: string;
       }[]
     | undefined;
-  setCheck?: (arg: string) => void;
+  onChange: (prafName: string, prefCode: number, check: boolean) => void;
 };
 
 function Selector(props: Props) {
-  const [nowCheck, setCheck] = useState<string>("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newCheck = e.target.value;
-    if (nowCheck === newCheck) {
-      setCheck("");
-      props.setCheck?.("");
-    } else {
-      setCheck(newCheck);
-      props.setCheck?.(newCheck);
-    }
-  };
-
   if (typeof props.result === "undefined") {
     return <p className={Style.Title}>都道府県</p>;
   } else {
@@ -34,15 +21,24 @@ function Selector(props: Props) {
         <div className={Style.Selector}>
           {props.result.map((prop) => {
             return (
-              <div key={prop.prefCode} className={Style.Checkbox}>
+              <div className={Style.CheckField} key={prop.prefCode}>
                 <input
+                  className={Style.Check}
                   type="checkbox"
                   id={prop.prefName}
-                  value={prop.prefName}
-                  checked={nowCheck === prop.prefName}
-                  onChange={handleChange}
+                  onChange={(event) =>
+                    props.onChange(
+                      prop.prefName,
+                      prop.prefCode,
+                      event.target.checked
+                    )
+                  }
                 />
-                <div className={Style.Text}>{prop.prefName}</div>
+                <label className={Style.Text}>
+                  {prop.prefName.length === 3
+                    ? " " + prop.prefName
+                    : prop.prefName}
+                </label>
               </div>
             );
           })}

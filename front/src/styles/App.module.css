@@ -3,8 +3,11 @@
 }
 
 .Selector {
-    position: absolute;
-    top: 80px;
+    padding-top: 50px;
+}
+
+.Graph {
+    position: flex;
 }
 
 * {

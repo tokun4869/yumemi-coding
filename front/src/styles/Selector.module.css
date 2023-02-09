@@ -1,17 +1,23 @@
 .Title {
-    margin: 0 5%;
+    margin-left: 5%;
 }
 
 .Selector {
-    margin: 0 10%;
+    margin: 0% 10%;
+    overflow: hidden;
 }
 
-.Checkbox {
-    display: flex;
+.CheckField {
+    width: fit-content;
     float: left;
-    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.Check{
+    margin: auto;
 }
 
 .Text {
-    display: fit-content;
+    width: fit-content;
+    margin: auto;
 }
